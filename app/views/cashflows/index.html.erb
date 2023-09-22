@@ -4,11 +4,23 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Cashflows</h1>
-    <%= link_to 'New cashflow', new_cashflow_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">All transactions</h1>
   </div>
 
   <div id="cashflows" class="min-w-full">
-    <%= render @cashflows %>
+    <div class="container mt-10">
+    <% if params[:id].present?%>
+      <%= link_to "Add Transaction", new_category_cashflows_path(params[:id]), class: "ml-2 rounded-lg py-1 px-2 bg-gray-100 font-medium flex-1" %>
+    <%end%>  
+    <ul>
+      <% @cashflows.each do |cashflow|%>
+        <li>
+          <h2><%= cashflow.name %></h2>
+          <p>USD <%= cashflow.amount %></p>
+          <small>Added at: <%= cashflow.created_at%></small>
+        </li>
+      <% end %>
+    </ul>    
+  </div>
   </div>
 </div>

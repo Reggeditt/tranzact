@@ -11,9 +11,17 @@ class CashflowsController < ApplicationController
   end
 
   # GET /cashflows/new
-  def new
-    @cashflow = Cashflow.new
-  end
+  # def new
+  #   @cashflow = Cashflow.new
+  # end
+
+# GET /categories/:category_id/cashflows/new
+def new
+  @category = Category.find(params[:category_id]) # Find the associated category
+  @cashflow = @category.cashflows.build(user_id: current_user.id) # Build a new cashflow associated with the category and set user_id
+end
+
+
 
   # GET /cashflows/1/edit
   def edit
@@ -25,11 +33,9 @@ class CashflowsController < ApplicationController
 
     respond_to do |format|
       if @cashflow.save
-        format.html { redirect_to cashflow_url(@cashflow), notice: "Cashflow was successfully created." }
-        format.json { render :show, status: :created, location: @cashflow }
+        redirect_to categories_path, notice: "Cashflow was successfully created."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cashflow.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
   end
@@ -65,6 +71,6 @@ class CashflowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cashflow_params
-      params.require(:cashflow).permit(:user_id, :category_id)
+      params.require(:cashflow).permit(:user_id, :category_id, :name, :amount)
     end
 end

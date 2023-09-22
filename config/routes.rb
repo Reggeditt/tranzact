@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resource :cashflows
   end
 
+  get '/transactions', to: 'cashflows#index', as: 'transactions' 
+
   root "hero#index"
 end
