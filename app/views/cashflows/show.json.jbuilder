@@ -1,1 +1,1 @@
-json.partial! "cashflows/cashflow", cashflow: @cashflow
+json.partial! 'cashflows/cashflow', cashflow: @cashflow

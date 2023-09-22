@@ -1,1 +1,1 @@
-json.array! @cashflows, partial: "cashflows/cashflow", as: :cashflow
+json.array! @cashflows, partial: 'cashflows/cashflow', as: :cashflow

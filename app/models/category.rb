@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-    belongs_to :user
-    has_many :cashflows
+  belongs_to :user
+  has_many :cashflows
 end
