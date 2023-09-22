@@ -1,0 +1,26 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">All transactions</h1>
+  </div>
+
+  <div id="cashflows" class="min-w-full">
+    <div class="container mt-10">
+    <% if params[:id].present?%>
+      <%= link_to "Add Transaction", new_category_cashflows_path(params[:id]), class: "ml-2 rounded-lg py-1 px-2 bg-gray-100 font-medium flex-1" %>
+    <%end%>  
+    <ul>
+      <% @cashflows.each do |cashflow|%>
+        <li>
+          <h2><%= cashflow.name %></h2>
+          <p>USD <%= cashflow.amount %></p>
+          <small>Added at: <%= cashflow.created_at%></small>
+        </li>
+      <% end %>
+    </ul>    
+  </div>
+  </div>
+</div>
