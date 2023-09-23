@@ -86,5 +86,5 @@ test:
 production:
   <<: *default
   database: tranzact_production
-  username: tranzact
-  password: <%= ENV["TRANZACT_DATABASE_PASSWORD"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
