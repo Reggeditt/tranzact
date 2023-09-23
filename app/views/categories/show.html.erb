@@ -1,0 +1,36 @@
+<h1 class="font-bold text-white text-4xl absolute top-5 left-0 text-center w-screen m-0 capitalize">
+  <%= @category.name %>
+</h1>
+<%= link_to categories_path do%>
+  <%= image_tag "previous.png", alt: "back arrow", class: "w-10" %>
+<%end%>
+<div class="md:w-2/3 w-full flex-col justify-start">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= render @category %>
+
+    
+    <div class="flex gap-x-1 w-full">
+      <%= link_to 'Edit category', edit_category_path(@category), class: "mt-2 rounded-lg py-1 px-2 bg-gray-100 font-medium flex-1" %>
+      <%= button_to 'Delete', category_path(@category), method: :delete, class: "mt-2 rounded-lg py-1 px-2 bg-gray-100 font-medium flex-1" %>
+    </div>
+  </div>
+
+  <div class="container mt-10">
+    <ul  class="divide-y">
+      <% @cashflows.each do |cashflow|%>
+        <li class="flex-col gap-5">
+          <div class="container flex gap-5 items-center justify-between">
+            <h2 class="m-0"><%= cashflow.name %></h2>
+            <p class="m-0">USD <%= cashflow.amount %></p>
+          </div>
+          <small>Added at: <%= cashflow.created_at%></small>
+        </li>
+      <% end %>
+    </ul>    
+  </div>
+  <%= link_to "Add Transaction", new_category_cashflows_path(params[:id]), class: "rounded-lg py-3 px-5 bg-blue-600 text-white text-center block font-medium sticky bottom-5" %>
+</div>
