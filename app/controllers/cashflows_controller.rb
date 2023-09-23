@@ -29,7 +29,7 @@ class CashflowsController < ApplicationController
 
     respond_to do |format|
       if @cashflow.save
-        format.html {redirect_to category_path(@cashflow.category_id), notice: 'Cashflow was successfully created.'}
+        format.html { redirect_to category_path(@cashflow.category_id), notice: 'Cashflow was successfully created.' }
       else
         render :new, status: :unprocessable_entity
       end

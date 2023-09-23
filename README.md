@@ -33,7 +33,7 @@
 
 # 📖 [Tranzact] <a name="about-project"></a>
 
-**[Tranzact]** is an app that allows users to add posts, and like and comment on posts.
+**[Tranzact]** is an app that allows user to track their transactions and related categories.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -70,9 +70,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Creates Database Relations**
-- **[Authenticate users]**
-- **[Users can add transations and their categories]**
+- **Sign up and log in**
+- **Add categories**
+- **Add transactions**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,7 +100,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 ```
-git clone https://github.com/Reggeditt/blog-rails.git
+git clone https://github.com/Reggeditt/tranzact.git
 ```
 ### Install
 
@@ -124,9 +124,7 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-   bundle exec rspec spec/features/users_spec.rb
-
-   bundle exec rspec spec/features/posts_spec.rb
+   bundle exec rspec spec
 ```
 <!-- ### Deployment
 not available yet -->
@@ -184,7 +182,7 @@ If you like this project give the repo a star. thanks!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse inc for this awesome challenge
+I would like to thank microverse inc for this awesome challenge. I would also like to thank  Gregoire Vella on Behance for the design
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
